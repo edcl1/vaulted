@@ -1,65 +1,65 @@
-import Image from "next/image";
+const options = [
+  {
+    title: "Buy",
+    description: "Browse authenticated pre-owned jewellery from verified sellers.",
+  },
+  {
+    title: "Sell",
+    description: "List your piece with expert checks, secure handling, and protected payouts.",
+  },
+  {
+    title: "Authenticate",
+    description: "Every item is checked for trust, condition, and legitimacy before it reaches a buyer.",
+  },
+];
 
 export default function Home() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+    <main className="min-h-screen overflow-hidden bg-[#f5efe5] text-[#2d2118]">
+      <section className="relative min-h-screen px-6 py-8 sm:px-10 lg:px-16">
+        <div className="vaulted-monogram pointer-events-none absolute inset-0" />
+        <div className="pointer-events-none absolute left-1/2 top-28 h-[520px] w-[520px] -translate-x-1/2 rounded-full bg-[#6b4a35]/10 blur-3xl" />
+
+        <nav className="relative z-10 flex items-center justify-between border-b border-[#2d2118]/10 pb-6">
+          <div className="text-xl font-semibold tracking-[0.32em]">VAULTED</div>
+          <div className="hidden items-center gap-10 text-sm tracking-wide text-[#2d2118]/70 md:flex">
+            <a className="transition duration-500 hover:text-[#2d2118]" href="#buy">Buy</a>
+            <a className="transition duration-500 hover:text-[#2d2118]" href="#sell">Sell</a>
+            <a className="transition duration-500 hover:text-[#2d2118]" href="#authenticate">Authentication</a>
+          </div>
+        </nav>
+
+        <div className="relative z-10 mx-auto flex min-h-[calc(100vh-120px)] max-w-7xl flex-col justify-center pt-16">
+          <p className="mb-6 text-sm font-medium uppercase tracking-[0.42em] text-[#6b4a35]">
+            Luxury, verified, protected
           </p>
+
+          <h1 className="max-w-5xl text-6xl font-medium leading-[0.95] tracking-[-0.06em] sm:text-7xl lg:text-9xl">
+            The trusted marketplace for authenticated jewellery.
+          </h1>
+
+          <p className="mt-8 max-w-2xl text-lg leading-8 text-[#2d2118]/70 sm:text-xl">
+            Vaulted brings confidence to buying and selling pre-owned luxury jewellery, with authentication and trust built into every step.
+          </p>
+
+          <div className="mt-14 grid gap-4 md:grid-cols-3">
+            {options.map((option, index) => (
+              <a
+                id={option.title.toLowerCase()}
+                key={option.title}
+                href={`#${option.title.toLowerCase()}`}
+                className="group rounded-[2rem] border border-[#6b4a35]/20 bg-[#fffaf2]/55 p-7 shadow-[0_24px_80px_rgba(45,33,24,0.06)] backdrop-blur transition duration-700 ease-out hover:-translate-y-1 hover:border-[#6b4a35]/45 hover:bg-[#fffaf2]/95 hover:shadow-[0_32px_90px_rgba(45,33,24,0.12)]"
+              >
+                <div className="mb-10 flex h-11 w-11 items-center justify-center rounded-full border border-[#6b4a35]/25 text-sm text-[#6b4a35] transition duration-700 ease-out group-hover:border-[#6b4a35] group-hover:bg-[#6b4a35] group-hover:text-[#f5efe5]">
+                  0{index + 1}
+                </div>
+                <h2 className="text-2xl font-medium tracking-[-0.03em]">{option.title}</h2>
+                <p className="mt-4 leading-7 text-[#2d2118]/65">{option.description}</p>
+              </a>
+            ))}
+          </div>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
-    </div>
+      </section>
+    </main>
   );
 }
