@@ -1,60 +1,84 @@
 const options = [
   {
-    title: "Buy",
-    description: "Browse authenticated pre-owned jewellery from verified sellers.",
+    number: "01",
+    title: "MARKETPLACE",
+    description: "DISCOVER VERIFIED PIECES",
+    action: "ENTER",
+    href: "#marketplace",
+    featured: true,
   },
   {
-    title: "Sell",
-    description: "List your piece with expert checks, secure handling, and protected payouts.",
+    number: "02",
+    title: "SELL",
+    description: "REQUEST A VALUATION",
+    action: "START",
+    href: "#sell",
+    featured: false,
   },
   {
-    title: "Authenticate",
-    description: "Every item is checked for trust, condition, and legitimacy before it reaches a buyer.",
+    number: "03",
+    title: "VERIFICATION",
+    description: "OUR VERIFICATION PROCESS",
+    action: "VERIFY",
+    href: "#authenticate",
+    featured: false,
   },
 ];
 
 export default function Home() {
   return (
-    <main className="min-h-screen overflow-hidden bg-[#f5efe5] text-[#2d2118]">
-      <section className="relative min-h-screen px-6 py-8 sm:px-10 lg:px-16">
+    <main className="min-h-screen overflow-hidden bg-background text-foreground">
+      <section className="relative min-h-screen px-6 py-7 sm:px-10 lg:px-14">
+        <div className="hero-background pointer-events-none absolute inset-0" />
         <div className="vaulted-monogram pointer-events-none absolute inset-0" />
-        <div className="pointer-events-none absolute left-1/2 top-28 h-[520px] w-[520px] -translate-x-1/2 rounded-full bg-[#6b4a35]/10 blur-3xl" />
+        <div className="pointer-events-none absolute left-1/2 top-10 h-[620px] w-[820px] -translate-x-1/2 rounded-full bg-walnut/20 blur-3xl" />
 
-        <nav className="relative z-10 flex items-center justify-between border-b border-[#2d2118]/10 pb-6">
-          <div className="text-xl font-semibold tracking-[0.32em]">VAULTED</div>
-          <div className="hidden items-center gap-10 text-sm tracking-wide text-[#2d2118]/70 md:flex">
-            <a className="transition duration-500 hover:text-[#2d2118]" href="#buy">Buy</a>
-            <a className="transition duration-500 hover:text-[#2d2118]" href="#sell">Sell</a>
-            <a className="transition duration-500 hover:text-[#2d2118]" href="#authenticate">Authentication</a>
+        <nav className="relative z-10 mx-auto flex max-w-7xl items-center justify-between border-b border-foreground/10 pb-6">
+          <div className="text-xl font-semibold uppercase tracking-[0.34em] text-foreground">VAULTED</div>
+          <div className="hidden items-center gap-14 text-xs font-semibold uppercase tracking-[0.28em] text-foreground/70 md:flex">
+            <a className="transition duration-[850ms] ease-out hover:text-foreground" href="#about">About Us</a>
+            <span className="select-none text-foreground/30">|</span>
+            <a className="transition duration-[850ms] ease-out hover:text-foreground" href="#verification">Verification Process</a>
           </div>
         </nav>
 
-        <div className="relative z-10 mx-auto flex min-h-[calc(100vh-120px)] max-w-7xl flex-col justify-center pt-16">
-          <p className="mb-6 text-sm font-medium uppercase tracking-[0.42em] text-[#6b4a35]">
-            Luxury, verified, protected
-          </p>
+        <div className="relative z-10 mx-auto flex min-h-[calc(100vh-110px)] max-w-7xl flex-col justify-center pt-16">
+          <div className="mx-auto max-w-5xl text-center">
 
-          <h1 className="max-w-5xl text-6xl font-medium leading-[0.95] tracking-[-0.06em] sm:text-7xl lg:text-9xl">
-            The trusted marketplace for authenticated jewellery.
-          </h1>
+            <h1 className="text-2xl font-semibold uppercase leading-[1.45] tracking-[0.34em] text-foreground sm:text-4xl lg:text-5xl">
+              THE MODERN MARKETPLACE FOR<br />PRE-OWNED JEWELLERY
+            </h1>
 
-          <p className="mt-8 max-w-2xl text-lg leading-8 text-[#2d2118]/70 sm:text-xl">
-            Vaulted brings confidence to buying and selling pre-owned luxury jewellery, with authentication and trust built into every step.
-          </p>
+          </div>
 
-          <div className="mt-14 grid gap-4 md:grid-cols-3">
-            {options.map((option, index) => (
+          <div className="mx-auto mt-16 grid w-full max-w-6xl gap-5 lg:grid-cols-2">
+            {options.map((option) => (
               <a
-                id={option.title.toLowerCase()}
+                id={option.href.replace("#", "")}
                 key={option.title}
-                href={`#${option.title.toLowerCase()}`}
-                className="group rounded-[2rem] border border-[#6b4a35]/20 bg-[#fffaf2]/55 p-7 shadow-[0_24px_80px_rgba(45,33,24,0.06)] backdrop-blur transition duration-700 ease-out hover:-translate-y-1 hover:border-[#6b4a35]/45 hover:bg-[#fffaf2]/95 hover:shadow-[0_32px_90px_rgba(45,33,24,0.12)]"
+                href={option.href}
+                className={`group flex min-h-44 flex-col justify-between rounded-[1.75rem] border border-foreground/8 bg-foreground/[0.035] p-8 shadow-[0_18px_50px_rgba(0,0,0,0.06)] backdrop-blur-xl transition duration-[850ms] ease-out hover:-translate-y-1 hover:border-walnut/45 hover:bg-foreground/[0.055] hover:shadow-[0_26px_70px_rgba(0,0,0,0.10)] ${
+                  option.featured ? "lg:col-span-2 lg:min-h-52" : ""
+                }`}
               >
-                <div className="mb-10 flex h-11 w-11 items-center justify-center rounded-full border border-[#6b4a35]/25 text-sm text-[#6b4a35] transition duration-700 ease-out group-hover:border-[#6b4a35] group-hover:bg-[#6b4a35] group-hover:text-[#f5efe5]">
-                  0{index + 1}
+                <div className="flex items-center gap-5 text-[11px] font-semibold uppercase tracking-[0.32em] text-walnut/70">
+                  <span>{option.number}</span>
+                  <span className="h-px flex-1 bg-foreground/10" />
                 </div>
-                <h2 className="text-2xl font-medium tracking-[-0.03em]">{option.title}</h2>
-                <p className="mt-4 leading-7 text-[#2d2118]/65">{option.description}</p>
+
+                <div className="mt-8">
+                  <h2 className={`${option.featured ? "text-xl sm:text-2xl" : "text-lg"} font-semibold uppercase tracking-[0.3em] text-foreground`}>
+                    {option.title}
+                  </h2>
+                  <p className="mt-5 max-w-xl text-xs font-semibold uppercase leading-7 tracking-[0.2em] text-foreground/62">
+                    {option.description}
+                  </p>
+                </div>
+
+                <div className="mt-8 flex items-center justify-between text-xs font-semibold uppercase tracking-[0.34em] text-walnut/85">
+                  <span>{option.action}</span>
+                  <span className="transition duration-[850ms] ease-out group-hover:translate-x-2">→</span>
+                </div>
               </a>
             ))}
           </div>
